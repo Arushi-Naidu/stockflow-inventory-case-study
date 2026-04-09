@@ -15,7 +15,30 @@ This repository contains the complete solution for the StockFlow internship case
 3. (Optional) Create a virtual environment: `python -m venv venv && source venv/bin/activate`.
 4. Run the application: `python app.py`.
 5. Access the alerts endpoint: `GET http://localhost:5000/api/companies/1/alerts/low-stock`.
+### Example Response
 
+```json
+{
+  "alerts": [
+    {
+      "product_id": 123,
+      "product_name": "Widget A",
+      "sku": "WID-001",
+      "warehouse_id": 456,
+      "warehouse_name": "Main Warehouse",
+      "current_stock": 5,
+      "threshold": 20,
+      "days_until_stockout": 12,
+      "supplier": {
+        "id": 789,
+        "name": "Supplier Corp",
+        "contact_email": "orders@supplier.com"
+      }
+    }
+  ],
+  "total_alerts": 1
+}
+```
 ## Design Assumptions & Reasoning
 
 ### Part 1: Debugging
