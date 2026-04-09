@@ -54,5 +54,14 @@ This repository contains the complete solution for the StockFlow internship case
 - **Recent Activity**: Defined as any sales occurring within the last 30 days. Products without recent sales are excluded from alerts to prevent noise.
 - **Stockout Prediction**: Calculated as `Current Stock / (Total Sales in Last 30 Days / 30)`. This provides a realistic estimate of when replenishment is needed.
 - **Dynamic Thresholds**: Assumed thresholds are stored in the `inventory` table to allow for warehouse-specific stock policies.
+## Edge Cases Considered
 
+The API and database design consider several potential edge cases that may occur in a real inventory system:
+
+- **Products without suppliers** – A product may temporarily have no supplier assigned, so the API should handle null supplier data.
+- **Multiple suppliers per product** – The schema allows a product to be associated with multiple suppliers for flexibility.
+- **Negative inventory values** – Inventory could temporarily become negative due to synchronization delays or order processing.
+- **Products with no recent sales** – Low-stock alerts are only generated for products that have had recent sales activity.
+- **Products stored in multiple warehouses** – The system tracks inventory per warehouse rather than per product globally.
+- **Concurrent inventory updates** – Database transactions are used to maintain atomic operations when updating inventory.
  
