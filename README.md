@@ -32,6 +32,4 @@ This repository contains the complete solution for the StockFlow internship case
 - **Stockout Prediction**: Calculated as `Current Stock / (Total Sales in Last 30 Days / 30)`. This provides a realistic estimate of when replenishment is needed.
 - **Dynamic Thresholds**: Assumed thresholds are stored in the `inventory` table to allow for warehouse-specific stock policies.
 
----
-
-**Prepared by:** Antigravity (Advanced Agentic Coding AI)
+ 
