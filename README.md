@@ -64,4 +64,28 @@ The API and database design consider several potential edge cases that may occur
 - **Products with no recent sales** – Low-stock alerts are only generated for products that have had recent sales activity.
 - **Products stored in multiple warehouses** – The system tracks inventory per warehouse rather than per product globally.
 - **Concurrent inventory updates** – Database transactions are used to maintain atomic operations when updating inventory.
- 
+ ## Entity Relationship Diagram (ERD)
+```
+## Entity Relationship Diagram (ERD)
+Companies
+   │
+   ├── Warehouses
+   │        │
+   │        └── Inventory
+   │                │
+   │                └── Products
+   │
+   └── Suppliers
+            │
+            └── Product_Suppliers
+                    │
+                    └── Products
+
+Products
+   │
+   └── Bundles (self-referencing relationship)
+
+Inventory
+   │
+   └── Inventory_Logs (tracks stock changes)
+```
